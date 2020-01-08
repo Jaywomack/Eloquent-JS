@@ -79,3 +79,32 @@
 // }
 // console.log(board);
 // When you have a program that generates theis pattern, define a binding size = 8 and change the program so that it works for any size, outputting a grid of the given width and height.
+
+/******
+ *
+ * CHAPTER 3
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+// Minimum
+// Write a function min that takes two arguments and returns their minimum.
+
+function min(num1, num2) {
+  return Math.min(num1, num2);
+}
+console.log(min(12, 6));
+
+// Author Solution
+function min(a, b) {
+  if (a < b) return a;
+  else return b;
+}
+console.log(min(0, 10));
+// → 0
+console.log(min(0, -10));
+// → -10
