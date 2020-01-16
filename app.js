@@ -94,17 +94,272 @@
 // Minimum
 // Write a function min that takes two arguments and returns their minimum.
 
-function min(num1, num2) {
-  return Math.min(num1, num2);
-}
-console.log(min(12, 6));
+// function min(num1, num2) {
+//   return Math.min(num1, num2);
+// }
+// console.log(min(12, 6));
 
-// Author Solution
-function min(a, b) {
-  if (a < b) return a;
-  else return b;
-}
-console.log(min(0, 10));
-// → 0
-console.log(min(0, -10));
-// → -10
+// // Author Solution
+// function min(a, b) {
+//   if (a < b) return a;
+//   else return b;
+// }
+// console.log(min(0, 10));
+// // → 0
+// console.log(min(0, -10));
+// // → -10
+
+// // Recursion
+// // Author Solution
+// function isEven(n) {
+//   if (n == 0) return true;
+//   else if (n == 1) return false;
+//   else if (n < 0) return isEven(-n);
+//   else return isEven(n - 2);
+// }
+
+// console.log(isEven(50));
+// // → true
+// console.log(isEven(75));
+// // → false
+// console.log(isEven(-1));
+// // → false
+
+// Bean Counting
+
+// Write a funtion that takes a string as an argument and counts the Capital B's in it
+
+// Then write a function that takes a string and counts a certain character in it
+
+// function countBs(str) {
+// 	count = 0;
+//   for(let i = 0; i < str.length; i++) {
+//   	if(str.charAt(i) === 'B') {
+//     	count ++
+//     }
+//   }
+//   return count
+// }
+
+// function countChar(str, char) {
+// 	count = 0;
+//   for(let i = 0; i< str.length; i++) {
+//   	if(str.charAt(i) === char) {
+//     	count ++
+//     }
+//   }
+//   return count
+// }
+
+// console.log(countBs("BBC"));
+// // → 2
+// console.log(countChar("kakkerlak", "k"));
+// // → 4
+
+// // Author's solution
+// function countChar(string, ch) {
+//   let counted = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] == ch) {
+//       counted += 1;
+//     }
+//   }
+//   return counted;
+// }
+
+// function countBs(string) {
+//   return countChar(string, "B");
+// }
+/***(
+ *
+ *
+ * Chapter 4 coding practice
+ *
+ *
+ *
+ * ) */
+
+/****
+ *
+ *
+ *
+ *
+ *
+ * SUM OF RANGE CHAPTER 4
+ */
+// function range(start, end) {
+//   let arr = [];
+//   for (let i = start; i <= end; i++) {
+//     arr.push(i);
+//   }
+//   return arr;
+// }
+// // console.log(range(1, 10));
+
+// function sumOfRange(start, end) {
+//   let sum = 0;
+//   for (let i = start; i <= end; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// }
+
+// console.log(sumOfRange(1, 10));
+
+// function incrementByStep(start, end, step) {
+//   let arr = [];
+//   if (step > 0) {
+//     for (let i = start; i <= end; i += step) {
+//       arr.push(i);
+//     }
+//   } else {
+//     for (let i = start; i >= end; i += step) {
+//       arr.push(i);
+//     }
+//   }
+//   return arr;
+// }
+// console.log(incrementByStep(0, 100, 5));
+
+// let arrayOne = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// function sumOfArray(arr) {
+//   let total = 0;
+//   for (let value of arr) {
+//     total += value;
+//   }
+//   return total;
+// }
+// console.log(sumOfArray(arrayOne));
+
+// book version
+// function range(start, end, step = start < end ? 1 : -1) {
+//   let array = [];
+//   if (step > 0) {
+//     for (let i = start; i <= end; i += step) array.push(i);
+//   } else {
+//     for (let i = start; i >= end; i += step) array.push(i);
+//   }
+//   return array;
+// }
+
+// console.log(range(1, 10, 2));
+
+/*****
+ *
+ *
+ *
+ *
+ * REVERSING AND ARRAY
+//  */
+// let arrayValue = [1, 2, 3, 4, 5];
+// function reverseArray(arr) {
+//   let output = [];
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     output.push(arr[i]);
+//   }
+//   return output;
+// }
+// // console.log(reverseArray(arrayValue));
+
+// // Start at the beginning of the array and iterate to the half way point
+// //  With each loop we set the element at i — or arr[i] — equal to a variable called old
+// // Then we set the first element equal to the last, and the last element equal to the first
+// // With each subsequent loop, as we moved inward we did the same thing
+// function ReverseArrayInPlace(arr) {
+//   for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+//     let old = arr[i];
+//     arr[i] = arr[arr.length - 1 - i];
+//     arr[arr.length - 1 - i] = old;
+//   }
+//   return arr;
+// }
+// ReverseArrayInPlace(arrayValue);
+// console.log(arrayValue);
+
+/***
+ *
+ *
+ * A list
+ *
+ * Chapter 4
+//  */
+
+// // List data structure
+// let list = {
+//   value: 1,
+//   rest: {
+//     value: 2,
+//     rest: {
+//       value: 3,
+//       rest: null
+//     }
+//   }
+// };
+
+// // Function that takes in an array and creates a list
+// function arrayToList(array) {
+//   let list = null;
+//   for (let i = array.length - 1; i >= 0; i--) {
+//     list = { value: array[i], rest: list };
+//   }
+//   return list;
+// }
+
+// // function that takes a list and turns it into an array
+// function listToArray(list) {
+//   let array = [];
+//   for (let node = list; node; node = node.rest) {
+//     array.push(node.value);
+//   }
+//   return array;
+// }
+
+// // Function that prepends an item into a list and creates a new list
+// function prepend(value, list) {
+//   return { value, rest: list };
+// }
+
+// function nth(list, n) {
+//   if (!list) return undefined;
+//   else if (n == 0) return list.value;
+//   else return nth(list.rest, n - 1);
+// }
+
+// nth using recursion
+// let nth = function(list, number) {
+//   if (list.rest != null && number != 0) {
+//     number--;
+//     return nth(list.rest, number);
+//   }
+//   return list.value;
+// };
+// console.log(nth(list, 2));
+
+/****
+ *
+ * DEEP
+ * EQUAL
+ * CHAPTER 4
+ *
+ *
+ */
+
+// function deepEqual(a, b) {
+//   if (a === b) return true;
+
+//   if (a == null || typeof a != "object" || b == null || typeof b != "object")
+//     return false;
+
+//   // Set keysA and KeysB to the Object.keys of each object
+//   let keysA = Object.keys(a),
+//     keysB = Object.keys(b);
+
+//   // If the lengths of the keys are not the same they are not equal
+//   if (keysA.length != keysB.length) return false;
+
+//   for (let key of keysA) {
+//     // this is where the bkey is compared to the a key that is iterated in the for loop
+//     if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+//   }
+//   return true;
+// }
