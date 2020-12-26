@@ -28,3 +28,39 @@ square = (x) => {
 };
 
 console.log(square(8));
+
+// if a function is given extra variables it will ignore the extra variables and return the value from the needed amount of variables
+
+// CLOSURES
+// A function has access to any variable within the scope or environment that it was created in
+
+// Recursion
+// A recursive function calls itself
+function power(base = 2, exponent = 2) {
+  if (exponent == 0) {
+    return 1;
+  } else {
+    return base * power(base, exponent - 1);
+  }
+}
+console.log(power(2, 10));
+console.log(power());
+
+//  Another recursive function seeks to find the history to either adding or multiplying by three to reach a certain number :
+
+function findSolution(target) {
+  function find(current, history) {
+    if (current == target) {
+      return history;
+    } else if (current > target) {
+      return null;
+    } else {
+      return (
+        find(current + 5, `(${history} + 5)`) ||
+        find(current * 3, `(${history} * 3)`)
+      );
+    }
+  }
+  return find(1, '1');
+}
+console.log(findSolution(24));
