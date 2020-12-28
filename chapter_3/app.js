@@ -162,4 +162,73 @@
 
 // console.log(returnLeast(12, 12));
 
-let message: string = 'Hello world'
+// Recursion
+// Function takes in a number as an argument
+function isEven(number) {
+  // if the number is less than zero the number is converted to a positive integer
+  if (number < 0) {
+    return isEven(-number);
+    // return false if number === 1
+  } else if (number === 1) {
+    return false;
+    // return true if number ===0
+  } else if (number === 0) {
+    return true;
+    // subtracts two from the given number and continues the recursive function until an out come is satisfied
+  } else {
+    return isEven(number - 2);
+  }
+}
+
+// console.log(isEven(50)); // true
+// console.log(isEven(75)); // false
+// console.log(isEven(-1)); // false
+
+function countBs(str) {
+  let counter = 0;
+  let chars = str.split('');
+  for (const letter of chars) {
+    if (letter === 'B') {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+
+function countChars(str, target) {
+  let counter = 0;
+  let chars = str.split('');
+  for (const letter of chars) {
+    if (letter === target) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+
+// console.log(
+//   countChars(
+//     'I am a string and I want to know the amount of times the letter IIIIIII is used',
+//     'I'
+//   )
+// );
+
+let journal = [];
+function addEntry(events, squirrel) {
+  journal.push({ events, squirrel });
+}
+addEntry(['work', 'touched tree', 'pizz', 'running', 'television'], false);
+addEntry(
+  [
+    'work',
+    'ice cream',
+    'cauliflower',
+    'lasagna',
+    'touched tree',
+    'brushed teeth',
+  ],
+  false
+);
+addEntry(['weekend', 'cycling', 'break', 'peanuts', 'beer'], true);
+
+console.log(journal);
