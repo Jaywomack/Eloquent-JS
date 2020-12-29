@@ -231,4 +231,229 @@ addEntry(
 );
 addEntry(['weekend', 'cycling', 'break', 'peanuts', 'beer'], true);
 
-console.log(journal);
+// console.log(journal);
+
+// Array methods
+
+let todoList = [];
+// Will push a task onto the end of an array
+function remember(task) {
+  todoList.push(task);
+}
+
+// Will shift a value of the beginning of an array
+function getTask() {
+  return todoList.shift();
+}
+
+// Will unshift an array onto the beginning of an array
+function rememberUrgent(task) {
+  todoList.unshift(task);
+}
+
+/***
+ *
+ *  indexOf AND lastIndexOf
+ */
+let arr1 = [1, 2, 3, 4, 5, 5, 3, 6];
+
+// returns the first occurrence of a value
+// console.log(arr1.indexOf(2));
+
+// returns
+// console.log(arr1.lastIndexOf(3));
+
+/***
+ * SLICE
+ */
+// First argument is inclusive second is exclusive
+// console.log(arr1.slice(0, 3));
+
+function remove(array, index) {
+  // function to remove one number by slicing it and then concatenating the remaining string by slicing one more than the index and then joining it with the array concat method
+  return array.slice(0, index).concat(array.slice(index + 1));
+}
+
+// console.log(remove(arr1, 5));
+
+/***
+ * STRING AND THEIR PROPERTIES
+ */
+
+//String will not accept new properties. JavaScript wont complain but the values will not be saved.
+let kim = 'Kim';
+kim.age = 88;
+// console.log(kim.age); undefined
+
+// Slice and indexOf act similar to the array methods of the same name but indexOf can take more than one value such as indexOf('abc')
+// console.log('Jared'.slice(0, 3));
+// console.log('Jared'.indexOf('Jar'));
+
+// Trim will remove white spaces newlines tabs etc
+// console.log('  Jared \n is \n the \n best.   \n'.trim());
+
+// Padstart accepts a width and a character to pad with
+// console.log(String(6).padStart(3, '0'));
+// console.log('Jared'.padStart(10, '_'));
+
+/***
+ *
+ * Splitting and joining strings
+ */
+
+str1 = 'This is Sparta';
+
+strList = str1;
+let newStr = [];
+for (const char of strList.split('')) {
+  newStr.push(char);
+  newStr.join(',');
+}
+
+// console.log(newStr);
+
+function max(...numbers) {
+  let result = -Infinity;
+  for (let number of numbers) {
+    if (number > result) {
+      result = number;
+    }
+  }
+  return result;
+}
+
+let numbersArr = [
+  1,
+  2,
+  3,
+  4,
+  4,
+  4,
+  4,
+  5,
+  65,
+  76,
+  8,
+  8,
+  235,
+  46,
+  2345,
+  3456,
+  4536,
+  4356,
+];
+
+// console.log(max(1, 2, 3, 4, 5, 6, 7));
+// console.log(...numbersArr);
+
+let newNumbersArr = [123, 2345, 5647, 8976, 5234, 425, 5467, 45];
+
+let combinedNumbersArrays = [1, 2, 3, ...newNumbersArr, ...numbersArr];
+// console.log(combinedNumbersArray);
+/***
+ * The Math Object
+ */
+function randomPointOnCircle(radius) {
+  let angle = Math.random() * 2 * Math.PI;
+  return { x: radius * Math.cos(angle), y: radius * Math.sin(angle) };
+}
+// console.log(randomPointOnCircle(2));
+
+// Math.random()
+
+randomNumber = Math.floor(Math.random() * 10 + 1);
+
+// console.log(randomNumber);
+
+/***
+ * Destructuring
+ */
+// destructuring an object
+let { name } = { name: 'Jared', age: 35 };
+
+// destructuring and array
+let array1 = [1, 2, 3, 4];
+let [jay] = [{ name: 'Jay' }];
+// console.log(jay);
+
+// JSON
+// JSON.stringify and JSON.parse
+
+let person = {
+  name: 'Jay',
+  age: 35,
+  occupation: 'Software Engineer',
+};
+
+let data = JSON.stringify(person);
+// console.log(data);
+
+let parsedData = JSON.parse(data);
+// console.log(parsedData);
+
+/***
+ * Exercises
+ */
+
+//  The Sum of A Range
+// A way using a for loop
+function range1(start, end) {
+  ans = [];
+  for (let i = start; i <= end; i++) {
+    ans.push(i);
+  }
+  return ans;
+}
+// console.log(range1(1, 5));
+
+// A way with a recursive function that uses deprecated array comprehensions
+function range3(start, end) {
+  if (start === end) return [start];
+  return [start, ...range3(start + 1, end)];
+}
+
+let rangeArray = range3(1, 10);
+// console.log(rangeArray);
+
+// Reversing and Array
+let arrayA = [1, 2, 3, 4, 5];
+function reverseArray(arr) {
+  let ans = [];
+  for (let i = arr.length; i >= 0; i--) {
+    ans.push(i);
+  }
+  return ans;
+}
+
+// console.log(reverseArray(arrayA));
+
+let reverseArrayInPlace = function (array) {
+  let arrLength = array.length;
+  for (i = 0; i < arrLength; i++) {
+    array.splice(i, 0, array.pop());
+  }
+};
+
+reverseArrayInPlace(arrayA);
+// console.log(arrayA);
+
+// The smart way.
+
+let newArray = arrayA.slice().reverse();
+// console.log(newArray);
+
+// A list
+function arrayToList(arr) {
+  // set list = null
+  let list = null;
+  // loop through array starting at the last index in the array. As long as i is greater than or equal to the start of the array iterate backward through the array from the end
+  for (let i = arr.length - 1; i >= 0; i--) {
+    // for every iteration set list = to an object that has the value of the array value that is iterated and sets the value of rest to list
+    list = { value: arr[i], rest: list };
+  }
+  // Return the list that has all of the values in an object chained together by rest:list
+  return list;
+}
+
+let list1 = arrayToList(arrayA);
+// console.log(list1);
